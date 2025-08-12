@@ -1,7 +1,7 @@
 /* eslint-disable global-require,import/no-extraneous-dependencies */
 
 // @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
+// 注意：类型注解允许类型检查和IDE自动补全
 // eslint-disable-next-line import/no-extraneous-dependencies
 const { ProvidePlugin } = require("webpack");
 require("dotenv").config();
@@ -15,13 +15,13 @@ const baseUrl = "/";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "🦜️🔗 LangChain",
-  tagline: "LangChain Python Docs",
+  title: '🦜️🔗 Langchain | Langchainjs 中文文档',
+  tagline: "LangChain Python 中文文档",
   favicon: "img/brand/favicon.png",
-  // Set the production url of your site here
-  url: "https://python.langchain.com",
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
+  // 设置站点的生产环境URL
+  url: "https://langchain.transdocs.org",
+  // 设置站点提供的 /<baseUrl>/ 路径
+  // 对于GitHub Pages部署，通常是 '/<projectName>/'
   baseUrl: baseUrl,
   trailingSlash: true,
   onBrokenLinks: "throw",
@@ -98,8 +98,7 @@ const config = {
           }) {
             const sidebarItems = await defaultSidebarItemsGenerator(args);
             sidebarItems.forEach((subItem) => {
-              // This allows breaking long sidebar labels into multiple lines
-              // by inserting a zero-width space after each slash.
+              // 这允许通过在每个斜杠后插入零宽度空格来将长的侧边栏标签分成多行。
               if (
                 "label" in subItem &&
                 subItem.label &&
@@ -131,6 +130,10 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      metadata: [
+        { name: 'description', content: 'langchain 中文文档，每天定时同步官网更新。' },
+        { name: 'keywords', content: 'langchain,中文文档' },
+      ],
       docs: {
         sidebar: {
           hideable: true,
@@ -143,7 +146,7 @@ const config = {
       },
       announcementBar: {
         content:
-          '<strong>Our <a href="https://academy.langchain.com/courses/ambient-agents/?utm_medium=internal&utm_source=docs&utm_campaign=q2-2025_ambient-agents_co" target="_blank">Building Ambient Agents with LangGraph</a> course is now available on LangChain Academy!</strong>',
+          '<strong>我们的 <a href="https://academy.langchain.com/courses/ambient-agents/?utm_medium=internal&utm_source=docs&utm_campaign=q2-2025_ambient-agents_co" target="_blank">使用LangGraph构建环境代理</a> 课程现已在LangChain学院上线！</strong>',
         backgroundColor: "#d0c9fe",
       },
       prism: {
@@ -173,31 +176,31 @@ const config = {
             type: "docSidebar",
             position: "left",
             sidebarId: "integrations",
-            label: "Integrations",
+            label: "集成",
           },
           {
-            label: "API Reference",
+            label: "API 参考",
             to: "https://python.langchain.com/api_reference/",
           },
           {
-            type: "dropdown",
-            label: "More",
+            type: "下拉菜单",
+            label: "更多",
             position: "left",
             items: [
               {
                 type: "doc",
                 docId: "contributing/index",
-                label: "Contributing",
+                label: "贡献",
               },
               {
                 type: "doc",
                 docId: "people",
-                label: "People",
+                label: "人员",
               },
               {
                 type: "doc",
                 docId: "troubleshooting/errors/index",
-                label: "Error reference",
+                label: "错误参考",
               },
               {
                 type: "html",
@@ -223,7 +226,7 @@ const config = {
             ],
           },
           {
-            type: "dropdown",
+            type: "下拉菜单",
             label: "v0.3",
             position: "right",
             items: [
@@ -246,12 +249,12 @@ const config = {
             label: "💬",
             position: "right",
           },
-          // Please keep GitHub link to the right for consistency.
+          // 请保持GitHub链接在右侧以保持一致性。
           {
             href: "https://github.com/langchain-ai/langchain",
             position: "right",
             className: "header-github-link",
-            "aria-label": "GitHub repository",
+            "aria-label": "GitHub仓库",
           },
         ],
       },
@@ -259,10 +262,10 @@ const config = {
         style: "light",
         links: [
           {
-            title: "Community",
+            title: "社区",
             items: [
               {
-                label: "LangChain Forum",
+                label: "LangChain论坛",
                 href: "https://forum.langchain.com/",
               },
               {
@@ -279,7 +282,7 @@ const config = {
             title: "GitHub",
             items: [
               {
-                label: "Organization",
+                label: "组织",
                 href: "https://github.com/langchain-ai",
               },
               {
@@ -293,14 +296,14 @@ const config = {
             ],
           },
           {
-            title: "More",
+            title: "更多",
             items: [
               {
-                label: "Homepage",
+                label: "首页",
                 href: "https://langchain.com",
               },
               {
-                label: "Blog",
+                label: "博客",
                 href: "https://blog.langchain.dev",
               },
               {
@@ -310,14 +313,14 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} LangChain, Inc.`,
+        copyright: `版权所有 © ${new Date().getFullYear()} LangChain, Inc.`,
       },
       algolia: {
-        // The application ID provided by Algolia
+        // Algolia提供的应用程序ID
         appId: "VAU016LAWS",
 
-        // Public API key: it is safe to commit it
-        // this is linked to erick@langchain.dev currently
+        // 公共API密钥：提交是安全的
+        // 目前链接到 erick@langchain.dev
         apiKey: "6c01842d6a88772ed2236b9c85806441",
 
         indexName: "python-langchain-latest",
@@ -325,6 +328,16 @@ const config = {
         contextualSearch: false,
       },
     }),
+  scripts: [
+    {
+      src: 'https://cdn.jsdmirror.com/gh/transdocs-org/cdn/transdocs-info-modal.js',
+      defer: true
+    },
+    {
+      src: 'https://hm.baidu.com/hm.js?2fe1095387fd2f2c25892a4fde2f0cc2',
+      async: true
+    },
+  ],
   customFields: {
     supabasePublicKey: process.env.NEXT_PUBLIC_SUPABASE_PUBLIC_KEY,
     supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL,
